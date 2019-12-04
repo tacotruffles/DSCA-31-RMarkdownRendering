@@ -1,0 +1,34 @@
+---
+title: "Embedded Render Report"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library('htmltools') #install.packages('htmltools')
+library('tidyverse')
+dat_raw = iris
+dat = dat_raw %>% janitor::clean_names()
+```
+
+```{r echo=FALSE, message=FALSE, include=FALSE}
+rmarkdown::render(input = 'embedded_template_plot.Rmd', 
+                  output_file = 'embedded_examples/embedded_report_plot.html',
+                  params = list(dat = dat))
+```
+
+```{r}
+htmltools::includeHTML("embedded_examples/embedded_report_plot.html")
+```
+
+
+```{r echo=FALSE, message=FALSE, include=FALSE}
+rmarkdown::render(input = 'embedded_template_summary.Rmd', 
+                  output_file = 'embedded_examples/embedded_report_summary.html',
+                  params = list(dat = dat))
+```
+
+```{r}
+htmltools::includeHTML("embedded_examples/embedded_report_summary.html")
+```
+

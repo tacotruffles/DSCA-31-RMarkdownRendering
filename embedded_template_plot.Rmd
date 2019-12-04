@@ -1,0 +1,15 @@
+---
+title: "Embedded Template Plot"
+output: html_document
+params:
+  dat: dat
+---
+
+Plotting template!!!
+```{r plot}
+params$dat %>%
+  ggplot(aes(x = petal_length, y = sepal_length, col = species)) +
+  geom_point()
+```
+
+

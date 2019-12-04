@@ -1,0 +1,27 @@
+---
+title: "Iris Data Summary Statistics by Species - Single"
+output: html_document
+params: 
+  dat: dat
+  species_filter: species_filter
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library("tidyverse")
+```
+
+## Here is my output for: `r params$species_filter` 
+
+```{r}
+summary(params$dat)
+```
+
+```{r}
+params$dat %>%
+  ggplot(aes(x = sepal_length, y = petal_length)) +
+  geom_point() + 
+  geom_smooth()
+```
+
+

@@ -1,0 +1,11 @@
+---
+title: "Embedded Template Summary"
+output: html_document
+params:
+  dat: dat
+---
+
+Summary Template!!!
+```{r summary}
+params$dat %>% summary()
+```
