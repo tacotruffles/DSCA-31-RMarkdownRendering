@@ -14,11 +14,13 @@ library("tidyverse")
 ## Here is my output for: `r params$species_filter` 
 
 ```{r}
-summary(params$dat)
+dat_filtered <- params$dat %>% filter(species == params$species_filter)
+
+summary(dat_filtered)
 ```
 
 ```{r}
-params$dat %>%
+dat_filtered %>%
   ggplot(aes(x = sepal_length, y = petal_length)) +
   geom_point() + 
   geom_smooth()
